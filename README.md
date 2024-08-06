@@ -40,13 +40,13 @@ dados dessas entidades.
 3 - MySQL (para o banco de dados)
 
 ### Passos para Executar a API:  
-1 - Clone este repositório:  
-2 - Navegue até a pasta da API:  
+1 - Clone este repositório:  https://github.com/CarlosH-Oliveira/DepartmentTutorialApp.git
+2 - Navegue até a pasta da API:  ASP.NET/DepartmentTutorialApp
 3 - Configure a string de conexão do banco de dados no arquivo "appsettings.json"  
 4 - Execute as migrações do Entity Framework para criar o banco de dados: "dotnet ef database update" (Terminal) || "Update-Database" (Console do gerenciador de pacotes Nuget)  
 5 - Execute a aplicação: "dotnet run"
 
 ### Passos para Executar o Front-end:  
-1 - Navegue até a pasta do projeto React:  
+1 - Navegue até a pasta do projeto React:  ReactJS - Typescript/department_tutorial
 2 - Instale as dependências: "npm install"  
 3 - Execute a aplicação: "npm start"
