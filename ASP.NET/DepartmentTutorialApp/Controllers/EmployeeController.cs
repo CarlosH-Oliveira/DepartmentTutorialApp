@@ -164,7 +164,7 @@ namespace DepartmentTutorialApp.Controllers
                 }
 
                 var path = Path.Combine(
-                            Directory.GetCurrentDirectory(), "photos",
+                            Directory.GetCurrentDirectory(), "Photos",
                             file.FileName);
 
                 using (var stream = new FileStream(path, FileMode.Create))
@@ -172,15 +172,18 @@ namespace DepartmentTutorialApp.Controllers
                     await file.CopyToAsync(stream);
                 }
 
-                path = Path.Combine(
-                            Directory.GetCurrentDirectory(), "photos",
+                if(employee.PhotoFileName != null)
+                {
+                    path = Path.Combine(
+                            Directory.GetCurrentDirectory(), "Photos",
                             employee.PhotoFileName);
 
-                if (System.IO.File.Exists(path))
-                {
-                    System.IO.File.Delete(path);
+                    if (System.IO.File.Exists(path))
+                    {
+                        System.IO.File.Delete(path);
+                    }
                 }
-
+                
                 employee.PhotoFileName = file.FileName;
                 _context.SaveChanges();
                 return Ok("{ 'error':'true', 'message':'Foto salva com sucesso!.'}");

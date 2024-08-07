@@ -1932,19 +1932,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\carlos\\.nuget\\packages\\": {}
+    "C:\\Users\\Carlos Oliveira\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\carlos\\source\\repos\\DepartmentTutorialApp\\DepartmentTutorialApp.csproj",
+      "projectUniqueName": "C:\\Users\\Carlos Oliveira\\Documents\\Apresentação para vaga de desenvolvedor .NET\\DepartmentTutorialApp\\ASP.NET\\DepartmentTutorialApp\\DepartmentTutorialApp.csproj",
       "projectName": "DepartmentTutorialApp",
-      "projectPath": "C:\\Users\\carlos\\source\\repos\\DepartmentTutorialApp\\DepartmentTutorialApp.csproj",
-      "packagesPath": "C:\\Users\\carlos\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\carlos\\source\\repos\\DepartmentTutorialApp\\obj\\",
+      "projectPath": "C:\\Users\\Carlos Oliveira\\Documents\\Apresentação para vaga de desenvolvedor .NET\\DepartmentTutorialApp\\ASP.NET\\DepartmentTutorialApp\\DepartmentTutorialApp.csproj",
+      "packagesPath": "C:\\Users\\Carlos Oliveira\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Carlos Oliveira\\Documents\\Apresentação para vaga de desenvolvedor .NET\\DepartmentTutorialApp\\ASP.NET\\DepartmentTutorialApp\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\carlos\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Carlos Oliveira\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -1964,6 +1964,11 @@
         "warnAsError": [
           "NU1605"
         ]
+      },
+      "restoreAuditProperties": {
+        "enableAudit": "true",
+        "auditLevel": "low",
+        "auditMode": "direct"
       }
     },
     "frameworks": {
@@ -2020,7 +2025,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.401\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.204\\RuntimeIdentifierGraph.json"
       }
     }
   }
