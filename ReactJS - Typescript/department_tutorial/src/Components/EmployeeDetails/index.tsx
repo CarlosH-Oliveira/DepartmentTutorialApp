@@ -37,14 +37,6 @@ export function EmployeeDetails () {
       }, [] )
 
     useEffect( function(){
-        SetNewEmployeeName( "" )
-    }, [EmployeesData] )
-
-    useEffect(function(){
-        SetNewEmployeeDepartment( "" )
-    }, [EmployeesData] )
-
-    useEffect( function(){
         if( CurrentEmployee != undefined ){
             var employee : any = CurrentEmployee
             SetNewEmployeeName( employee.Name )
@@ -83,7 +75,10 @@ export function EmployeeDetails () {
             })
 
             if( !addResponse.ok ){
-                throw new Error()
+                if(addResponse.status !== 500){
+                    throw new Error("Departamento não existe")
+                }
+                throw new Error("Erro no servidor")
             }
             
             var response = await fetch( "https://localhost:7065/Employee" )
@@ -102,20 +97,24 @@ export function EmployeeDetails () {
             setInputModalShow(false)
 
         }
-
+        window.location.reload();
     }
 
     const editEmployeeClick = ( employee:object ) => {
-        SetCurrentEmployee( employee )
+        var cEmployee = CurrentEmployee
+        if(editEmployee !== cEmployee){
+            SetCurrentEmployee(employee)
+        }
         setInputModalShow( true )
     }
 
     const editEmployee = async() =>{
-
+        console.log(CurrentEmployee)
         if ( File ) {
             formData.append( 'arquivo', File )
         }
         var editEmployee : any = CurrentEmployee
+        console.log(editEmployee.Id)
         var editData = "{ 'name' : '" + NewEmployeeName + "', 'department':'" + NewEmployeeDepartment + "' }"
 
         try {
@@ -154,7 +153,7 @@ export function EmployeeDetails () {
             setErrorModalShow(true)
             setInputModalShow(false)
         }
-        
+        window.location.reload();
     }
 
     const deleteEmployeeClick = async( item:any ) => {
@@ -181,7 +180,7 @@ export function EmployeeDetails () {
             setErrorModalShow(true)
             setInputModalShow(false)
         }
-        
+        window.location.reload();
     }
     
     return(

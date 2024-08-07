@@ -90,12 +90,23 @@ namespace DepartmentTutorialApp.Controllers
             }
             else
             {
-                var path = Directory.GetCurrentDirectory() + "Photos/" + employee.PhotoFileName;
-
-                if (System.IO.File.Exists(path))
+                if(employee.PhotoFileName != null)
                 {
-                    System.IO.File.Delete(path);
+                    Console.WriteLine("Nome da foto de perfil: "+employee.PhotoFileName);
+                    var deleteExistingFilePath = Path.Combine(
+                            Directory.GetCurrentDirectory(), "Photos",
+                            employee.PhotoFileName);
+
+                    if (System.IO.File.Exists(deleteExistingFilePath))
+                    {
+                        System.IO.File.Delete(deleteExistingFilePath);
+                    }
+                    else
+                    {
+                        return StatusCode(500, "Erro ao deletar foto de usuário");
+                    }
                 }
+                
                 _context.Remove(employee);
                 _context.SaveChanges();
                 return Ok("{ 'error':'true', 'message':'Funcionário removido com sucesso.'}");
@@ -167,23 +178,23 @@ namespace DepartmentTutorialApp.Controllers
                             Directory.GetCurrentDirectory(), "Photos",
                             file.FileName);
 
+                if (employee.PhotoFileName != null)
+                {
+                    var deleteExistingFilePath = Path.Combine(
+                            Directory.GetCurrentDirectory(), "Photos",
+                            employee.PhotoFileName);
+
+                    if (System.IO.File.Exists(deleteExistingFilePath))
+                    {
+                        System.IO.File.Delete(deleteExistingFilePath);
+                    }
+                }
+
                 using (var stream = new FileStream(path, FileMode.Create))
                 {
                     await file.CopyToAsync(stream);
                 }
 
-                if(employee.PhotoFileName != null)
-                {
-                    path = Path.Combine(
-                            Directory.GetCurrentDirectory(), "Photos",
-                            employee.PhotoFileName);
-
-                    if (System.IO.File.Exists(path))
-                    {
-                        System.IO.File.Delete(path);
-                    }
-                }
-                
                 employee.PhotoFileName = file.FileName;
                 _context.SaveChanges();
                 return Ok("{ 'error':'true', 'message':'Foto salva com sucesso!.'}");

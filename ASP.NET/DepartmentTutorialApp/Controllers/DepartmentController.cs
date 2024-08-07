@@ -73,7 +73,9 @@ namespace DepartmentTutorialApp.Controllers
             }
             else
             {
-                _context.Remove(department);
+                List<Employee> deletingRange = _context.Employees.Where(employee => employee.Department == department.Name).ToList();
+                _context.Departments.Remove(department);
+                _context.Employees.RemoveRange(deletingRange);
                 _context.SaveChanges();
                 return NoContent();
             }
