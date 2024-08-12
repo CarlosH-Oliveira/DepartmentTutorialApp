@@ -42,7 +42,7 @@ dados dessas entidades.
 ### Passos para Executar a API:  
 1 - Clone este repositório:  https://github.com/CarlosH-Oliveira/DepartmentTutorialApp.git  
 2 - Navegue até a pasta da API:  ASP.NET/DepartmentTutorialApp  
-3 - Configure a string de conexão do banco de dados no arquivo "appsettings.json"   
+3 - Configure a string de conexão do banco de dados no arquivo "appsettings.json" e na função "OnConfiguring" da classe "DBContext.cs"  
 4 - Execute as migrações do Entity Framework para criar o banco de dados: "dotnet ef database update" (Terminal) || "Update-Database" (Console do gerenciador de pacotes Nuget)  
 5 - Execute a aplicação: "dotnet run"  
 
